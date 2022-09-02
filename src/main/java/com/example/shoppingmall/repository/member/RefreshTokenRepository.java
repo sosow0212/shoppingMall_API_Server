@@ -1,4 +1,4 @@
-package com.example.shoppingmall.repository.Member;
+package com.example.shoppingmall.repository.member;
 
 import com.example.shoppingmall.entity.member.RefreshToken;
 import org.springframework.data.jpa.repository.JpaRepository;

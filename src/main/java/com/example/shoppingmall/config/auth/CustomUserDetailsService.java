@@ -1,7 +1,7 @@
 package com.example.shoppingmall.config.auth;
 
 import com.example.shoppingmall.entity.member.Member;
-import com.example.shoppingmall.repository.Member.MemberRepository;
+import com.example.shoppingmall.repository.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
