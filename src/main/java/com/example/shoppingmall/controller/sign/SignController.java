@@ -31,7 +31,7 @@ public class SignController {
 
     @ApiOperation(value = "판매자 회원가입", notes = "판매자 회원가입 진행")
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/sign-up/guide")
+    @PostMapping("/sign-up/seller")
     public Response guideSignup(@Valid @RequestBody SignupRequestDto signupRequestDto) {
         signService.sellerSignup(signupRequestDto);
         return Response.success();

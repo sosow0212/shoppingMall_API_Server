@@ -65,7 +65,7 @@ public class SignControllerUnitTest {
 
         // when
         mockMvc.perform(
-                        post("/api/sign-up/guide")
+                        post("/api/sign-up/seller")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(req)))
                 .andExpect(status().isCreated());
