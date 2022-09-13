@@ -11,12 +11,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Data
 public class ProductFindAllResponseDto {
+    private Long product_id;
     private String name;
     private int price;
+    private int quantity;
     private String seller_username;
     private LocalDateTime createdAt;
 
     public static ProductFindAllResponseDto toDto(Product p) {
-        return new ProductFindAllResponseDto(p.getName(), p.getPrice(), p.getSeller().getName(), p.getCreatedAt());
+        return new ProductFindAllResponseDto(p.getId(), p.getName(), p.getPrice(), p.getQuantity(), p.getSeller().getName(), p.getCreatedAt());
     }
 }

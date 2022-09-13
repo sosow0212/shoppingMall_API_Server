@@ -77,22 +77,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/image/**").permitAll() // images
                 .antMatchers("/api/sign-up/**", "/api/sign-in", "/api/reissue").permitAll() // auth
 
-                .antMatchers(HttpMethod.GET, "/api/tags").access("hasRole('ROLE_USER') or hasRole('ROLE_GUIDE') or hasRole('ROLE_ADMIN')")
-                .antMatchers(HttpMethod.POST, "/api/tags").access("hasRole('ROLE_USER') or hasRole('ROLE_GUIDE') or hasRole('ROLE_ADMIN')")
-                .antMatchers(HttpMethod.PUT, "/api/tags").access("hasRole('ROLE_USER') or hasRole('ROLE_GUIDE') or hasRole('ROLE_ADMIN')")
-                .antMatchers(HttpMethod.GET, "/api/tags/{id}").access("hasRole('ROLE_USER') or hasRole('ROLE_GUIDE') or hasRole('ROLE_ADMIN')")
 
-                .antMatchers(HttpMethod.POST, "/api/products").access("hasRole('ROLE_GUIDE')")
-                .antMatchers(HttpMethod.GET, "/api/products").access("hasRole('ROLE_USER') or hasRole('ROLE_GUIDE') or hasRole('ROLE_ADMIN')")
-                .antMatchers(HttpMethod.GET, "/api/products/{id}").access("hasRole('ROLE_USER') or hasRole('ROLE_GUIDE') or hasRole('ROLE_ADMIN')")
-                .antMatchers(HttpMethod.PUT, "/api/products/{id}").access("hasRole('ROLE_GUIDE')")
-                .antMatchers(HttpMethod.DELETE, "/api/products/{id}").access("hasRole('ROLE_GUIDE')")
+                .antMatchers(HttpMethod.POST, "/api/products").access("hasRole('ROLE_SELLER')")
+                .antMatchers(HttpMethod.GET, "/api/products").access("hasRole('ROLE_USER') or hasRole('ROLE_SELLER') or hasRole('ROLE_ADMIN')")
+                .antMatchers(HttpMethod.GET, "/api/products/{id}").access("hasRole('ROLE_USER') or hasRole('ROLE_SELLER') or hasRole('ROLE_ADMIN')")
+                .antMatchers(HttpMethod.PUT, "/api/products/{id}").access("hasRole('ROLE_SELLER')")
+                .antMatchers(HttpMethod.DELETE, "/api/products/{id}").access("hasRole('ROLE_SELLER')")
 
-                .antMatchers(HttpMethod.POST, "/api/matches/{productId}").access("hasRole('ROLE_USER')")
-                .antMatchers(HttpMethod.POST, "/api/matches/users/{productId}").access("hasRole('ROLE_USER')")
-                .antMatchers(HttpMethod.POST, "/api/matches/guides/{productId}").access("hasRole('ROLE_GUIDE')")
-                .antMatchers(HttpMethod.DELETE, "/api/matches/users/{productId}").access("hasRole('ROLE_USER')")
-                .antMatchers(HttpMethod.DELETE, "/api/matches/guides/{productId}").access("hasRole('ROLE_GUIDE')")
+                .antMatchers(HttpMethod.POST, "/api/carts").access("hasRole('ROLE_USER')")
+                .antMatchers(HttpMethod.GET, "/api/carts").access("hasRole('ROLE_USER')")
+                .antMatchers(HttpMethod.DELETE, "/api/carts/{cartItemId}").access("hasRole('ROLE_USER')")
+                .antMatchers(HttpMethod.POST, "/api/carts/buying").access("hasRole('ROLE_USER')")
 
 
                 .anyRequest().hasAnyRole("ROLE_ADMIN")
