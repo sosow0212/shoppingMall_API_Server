@@ -132,6 +132,30 @@ public class ExceptionAdvice {
         return Response.failure(404, "요청한 매칭을 찾을 수 없습니다.");
     }
 
+    // 404 응답
+    // 상품 수량 부족
+    @ExceptionHandler(LakingOfProductQuantity.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public Response lakingOfProductQuantity() {
+        return Response.failure(404, "상품 수량이 부족합니다.");
+    }
+
+    // 404 응답
+    // 카트 없음
+    @ExceptionHandler(CartNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public Response cartNotFoundException() {
+        return Response.failure(404, "카트를 찾을 수 없습니다.");
+    }
+
+    // 404 응답
+    // 카트 아이템 없음
+    @ExceptionHandler(CartItemNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public Response cartItemNotFoundException() {
+        return Response.failure(404, "카트 아이템을 찾을 수 없습니다.");
+    }
+
 
     // 409 응답
     // username 중복
