@@ -24,7 +24,6 @@ public class CartService {
 
     private final CartRepository cartRepository;
     private final CartItemRepository cartItemRepository;
-    private final MemberRepository memberRepository;
     private final ProductRepository productRepository;
 
     @Transactional
